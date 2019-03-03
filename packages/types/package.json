@@ -1,16 +1,11 @@
 {
-  "name"           : "epic-time-tracker",
-  "private"        : true,
-  "author"         : "Yauheni Prakopchyk",
-  "license"        : "Copyright Yauheni Prakopchyk",
-  "version"        : "0.0.1",
-  "workspaces"     : [
-    "packages/*"
-  ],
-  "scripts"        : {
-  },
-  "devDependencies": {
-    "@types/node": "^10.12.18",
-    "lerna"      : "^3.10.6"
+  "name": "epic-time-tracker-types",
+  "version": "0.0.1",
+  "author": "Yauheni Prakopchyk <ontrew@gmail.com>",
+  "license": "Copyright Yauheni Prakopchyk",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "nanoid": "^2.0.1"
   }
 }
