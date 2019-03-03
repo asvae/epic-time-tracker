@@ -1,0 +1,18 @@
+{
+  "name"           : "au-2019-frontend",
+  "private"        : true,
+  "author"         : "Dr David C. Moshal",
+  "license"        : "Copyright Auctionologies LLC.",
+  "version"        : "0.0.1",
+  "workspaces"     : [
+    "packages/*"
+  ],
+  "scripts"        : {
+    "clear-tsc-mess": "node clear-tsc-mess.js",
+    "update"        : "yarn upgrade-interactive"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "lerna"      : "^3.10.6"
+  }
+}
