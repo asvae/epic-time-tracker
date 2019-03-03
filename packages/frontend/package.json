@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve:book": "vue-cli-service serve src/apps/book-main.ts",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
@@ -11,9 +12,11 @@
   },
   "dependencies": {
     "material-design-icons-iconfont": "^3.0.3",
+    "nanoid": "^2.0.1",
     "register-service-worker": "^1.5.2",
     "roboto-fontface": "*",
     "vue": "^2.6.6",
+    "vue-book": "0.1.0-alpha.13",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1",

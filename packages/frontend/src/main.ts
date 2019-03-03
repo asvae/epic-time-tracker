@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import './plugins/vuetify'
-import App from './App.vue'
+import './plugins/vuetify-plugin'
+import App from './EttApp.vue'
 import router from './router'
 import './registerServiceWorker'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'

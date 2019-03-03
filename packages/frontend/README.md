@@ -1,9 +1,20 @@
-# frontend
+# Epic time tracker - Frontend
 
 ## Project setup
 ```
 yarn install
 ```
+
+### vue-book dev server
+```
+yarn serve:book
+```
+
+↑ actual stuff
+
+-------------------------
+
+↓ vue-cli boilerplate
 
 ### Compiles and hot-reloads for development
 ```
