@@ -1,6 +1,6 @@
 export class Task {
-  _id: string
-  _order: number
+  _id: string = null
+  _order: number = null
   title: string = ''
 
   constructor (data: Partial<Task> = {}) {
