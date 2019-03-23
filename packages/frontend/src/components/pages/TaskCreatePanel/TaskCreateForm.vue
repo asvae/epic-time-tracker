@@ -11,15 +11,27 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Task } from '../../../../types/Task'
-import { prepareEntity } from './entity-functions'
-import { store } from '../../store/store'
+import { Task } from '../../../../../types/Task'
+import { prepareEntity } from '../../../../../types/entity-functions'
+import { store } from '../../../store/store'
+import { Action } from '../../../api/Action'
 
-@Component({})
+@Component({
+  sockets: {
+    connect: function () {
+      console.log('socket connected')
+    },
+    hello: function (data) {
+      console.log('hello', data)
+    }
+  },
+})
 export default class TaskCreateForm extends Vue {
   task = prepareEntity(new Task())
 
   submit () {
+    this.$socket.emit(Action.CREATE_TASK, this.task)
+
     store.tasks.push(this.task)
     this.task = prepareEntity(new Task())
   }

@@ -1,9 +1,15 @@
 import Vue from 'vue'
-import '../plugins/vuetify-plugin.ts'
+import '../../plugins/vuetify-plugin.ts'
 import BookApp from './BookApp.vue'
-import '../registerServiceWorker'
+import '../../plugins/socket-io/socket-io'
+
+// import '../../registerServiceWorker'
+
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
+import '../../plugins/double-panel/double-panel'
+
 import Router from 'vue-router'
 import { createRoute, VueBookComponents } from 'vue-book'
 Vue.use(VueBookComponents)
@@ -15,7 +21,7 @@ new Vue({
   router: new Router({
     routes: [
       createRoute({
-        requireContext: require.context('./..', true, /.demo.vue$/),
+        requireContext: require.context('./../..', true, /.demo.vue$/),
         path: '/',
         hideFileExtensions: true,
       }),

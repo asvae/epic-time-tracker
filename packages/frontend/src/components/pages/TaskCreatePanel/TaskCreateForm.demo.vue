@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import TaskCreateForm from './TaskCreateForm.vue'
-import {store} from '../../store/store'
+import {store} from '../../../store/store'
 
 @Component({
   components: {

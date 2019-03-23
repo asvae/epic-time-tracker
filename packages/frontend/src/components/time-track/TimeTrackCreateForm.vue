@@ -15,7 +15,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import TaskSelect from '../task/TaskSelect.vue'
 import { store } from '../../store/store'
-import { prepareEntity } from '../task/entity-functions'
+import { prepareEntity } from '../../../../types/entity-functions'
 import { TimeTrack } from '../../../../types/TimeTrack'
 
 @Component({
