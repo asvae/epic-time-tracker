@@ -8,14 +8,23 @@ export class TaskController extends Controller {
     await taskCollection.save(task.createdAt)
     return task
   }
+
   async updateTask (task: Task): Promise<Task> {
     const taskCollection = this.db.collection('tasks')
-    await taskCollection.save(task.createdAt)
+    await taskCollection.update(task, {
+      title: task.title,
+    })
     return task
   }
+
+  async getList (task: Task): Promise<Task[]> {
+    const taskCollection = this.db.collection('tasks')
+    taskCollection.all()
+  }
+
   async removeTask (task: Task): Promise<Task> {
     const taskCollection = this.db.collection('tasks')
-    await taskCollection.save(task.createdAt)
+    await taskCollection.remove(task)
     return task
   }
 }
