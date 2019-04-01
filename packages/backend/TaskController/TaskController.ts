@@ -5,7 +5,7 @@ export class TaskController extends Controller {
   async createTask (task: Task): Promise<Task> {
     const taskCollection = this.db.collection('tasks')
     task.createdAt = new Date()
-    await taskCollection.save(task.createdAt)
+    await taskCollection.save(task)
     return task
   }
 
@@ -17,9 +17,11 @@ export class TaskController extends Controller {
     return task
   }
 
-  async getList (task: Task): Promise<Task[]> {
+  async getList (): Promise<Task[]> {
     const taskCollection = this.db.collection('tasks')
-    taskCollection.all()
+    const cursor = await taskCollection.all()
+    const tasks = await cursor.all()
+    return tasks as Task[]
   }
 
   async removeTask (task: Task): Promise<Task> {

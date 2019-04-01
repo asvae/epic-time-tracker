@@ -1,35 +1,62 @@
 <template>
   <div class="TaskListPanel">
-    <button @click="createNewTask()">Create</button>
-    <button @click="loadTaskList()">Load Tasks</button>
+    <v-btn @click="createNewTask()">Create</v-btn>
+    <v-btn @click="loadTaskList()">Refresh task list</v-btn>
+    <div>
+      <div
+        v-for="task in tasks"
+        :key="task._key"
+      >
+        {{task.title}}
+        <v-btn @click="removeTask(task)">Remove</v-btn>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Mixins } from 'vue-property-decorator'
+import { Component, Mixins } from 'vue-property-decorator'
 // import { Executor } from 'asva-executors'
 import TaskCreatePanel from '../TaskCreatePanel/TaskCreatePanel.vue'
-import {panelMixin} from 'asva-double-panel'
+import { panelMixin } from 'asva-double-panel'
+import { Action } from '../../../api/Action'
+import {
+  ServerResponseType,
+  TaskList,
+  TaskCreated, TaskRemoved,
+} from '../../../api/ServerResponce'
+import { Task } from '../../../../../types/Task'
+
+export const removeByKey = (list: {_key: string}[], key: string) => {
+  return list.filter(listItem => listItem._key !== key)
+}
 
 @Component({
   sockets: {
-    connect: function () {
-      console.log('socket connected')
+    [ServerResponseType.TASK_LIST] (taskList: TaskList) {
+      this.tasks = taskList.body
     },
-    customEmit: function (data) {
-      console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)')
+    [ServerResponseType.TASK_CREATED] (taskCreated: TaskCreated) {
+      this.tasks.push(taskCreated.body)
+    },
+    [ServerResponseType.TASK_REMOVED] (taskRemoved: TaskRemoved) {
+      this.tasks = removeByKey(this.tasks, taskRemoved.body._key)
     },
   },
 })
 export default class TaskListPanel extends Mixins(panelMixin) {
-  // taskListExecutor = new Executor()
-
-  async loadTaskList () {
-    this.$socket.emit('loadTaskList', {})
+  tasks: Task [] = []
+  created () {
+    this.loadTaskList()
   }
-
+  async loadTaskList () {
+    this.$socket.emit(Action.TASK_LIST)
+  }
   createNewTask () {
     this.$panel.create(TaskCreatePanel)
+  }
+  removeTask(task) {
+    this.$socket.emit(Action.TASK_REMOVE, task)
   }
 }
 </script>

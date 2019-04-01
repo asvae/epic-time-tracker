@@ -30,7 +30,7 @@ export default class TaskCreateForm extends Vue {
   task = prepareEntity(new Task())
 
   submit () {
-    this.$socket.emit(Action.CREATE_TASK, this.task)
+    this.$socket.emit(Action.TASK_CREATE, this.task)
 
     store.tasks.push(this.task)
     this.task = prepareEntity(new Task())
