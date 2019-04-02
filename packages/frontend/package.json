@@ -13,6 +13,7 @@
   "dependencies": {
     "asva-double-panel": "^0.1.2",
     "asva-executors": "^0.1.21",
+    "date-fns": "^1.30.1",
     "lodash": "^4.17.11",
     "material-design-icons-iconfont": "^3.0.3",
     "nanoid": "^2.0.1",
