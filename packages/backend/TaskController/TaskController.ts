@@ -1,4 +1,4 @@
-import { Task } from '../../types/Task'
+import { Task } from '../../types/Task/Task'
 import { Controller } from '../core/Controller'
 
 export class TaskController extends Controller {

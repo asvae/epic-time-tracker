@@ -18,7 +18,7 @@
         </v-btn>
       </v-toolbar>
 
-      <v-list two-line>
+      <v-list>
         <template v-for="(task, index) in tasks">
           <v-list-tile :key="task._key">
             <v-list-tile-content>
@@ -29,10 +29,11 @@
               >
                 {{formatDate(timeTrack.start)}} - {{formatDate(timeTrack.end)}}
               </v-list-tile-sub-title>
+              <v-progress-linear :indeterminate="true"></v-progress-linear>
             </v-list-tile-content>
             <v-list-tile-action>
-              <v-btn @click="trackTask(task)" icon>
-                <v-icon color="purple">play_arrow</v-icon>
+              <v-btn dark color="primary" @click="trackTask(task)" icon>
+                <v-icon>play_arrow</v-icon>
               </v-btn>
               <v-btn @click="removeTask(task)" icon>
                 <v-icon color="purple">clear</v-icon>
@@ -57,10 +58,11 @@ import {
   TaskList,
   TaskCreated, TaskRemoved,
 } from '../../../api/ServerResponce'
-import { Task } from '../../../../../types/Task'
-import { TimeTrack } from '../../../../../types/TimeTrack'
+import { Task } from '../../../../../types/Task/Task'
+import { TimeTrack } from '../../../../../types/TimeTrack/TimeTrack'
 import { prepareEntity } from '../../../../../types/entity-functions'
 import {format, distanceInWords} from 'date-fns'
+import { formatDate } from '../../../../../types/helpers/date-helpers'
 
 export const removeByKey = (list: {_key: string}[], key: string) => {
   return list.filter(listItem => listItem._key !== key)
@@ -91,7 +93,7 @@ export default class TaskListPanel extends Mixins(panelMixin) {
     clearInterval(this.updateTrackIntervalHandler)
   }
   formatDate(date: Date) {
-    return format(date, 'h:mm:ss')
+    formatDate(date)
   }
   get currentTrackDistanceInWords (): string {
     if (!this.currentTrack) {

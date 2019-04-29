@@ -1,7 +1,7 @@
 import http from 'http'
 import { default as socketIo, Socket } from 'socket.io'
 import { Action } from '../../frontend/src/api/Action'
-import { Task } from '../../types/Task'
+import { Task } from '../../types/Task/Task'
 import { TaskController } from '../TaskController/TaskController'
 import {
   ServerResponseType,

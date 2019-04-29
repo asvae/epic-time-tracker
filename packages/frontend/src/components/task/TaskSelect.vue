@@ -13,7 +13,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import { store } from '../../store/store'
-import { Task } from '../../../../types/Task'
+import { Task } from '../../../../types/Task/Task'
 
 @Component({})
 export default class TaskSelect extends Vue {

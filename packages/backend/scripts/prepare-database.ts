@@ -1,5 +1,5 @@
 import { Database, aql } from 'arangojs'
-import { Task } from '../../types/Task'
+import { Task } from '../../types/Task/Task'
 import { prepareEntity } from '../../types/entity-functions'
 
 const DB_NAME = 'epic-time-tracker'

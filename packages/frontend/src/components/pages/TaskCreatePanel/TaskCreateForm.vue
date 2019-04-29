@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Task } from '../../../../../types/Task'
+import { Task } from '../../../../../types/Task/Task'
 import { prepareEntity } from '../../../../../types/entity-functions'
 import { store } from '../../../store/store'
 import { Action } from '../../../api/Action'

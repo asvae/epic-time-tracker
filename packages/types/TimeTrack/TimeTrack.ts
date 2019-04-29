@@ -1,5 +1,5 @@
-import { Entity } from './Entity'
-import { Task } from './Task'
+import { Entity } from '../Entity'
+import { Task } from '../Task/Task'
 
 export class TimeTrack extends Entity {
   task: Task = null

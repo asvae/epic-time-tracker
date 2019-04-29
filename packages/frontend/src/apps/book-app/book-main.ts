@@ -2,6 +2,7 @@ import Vue from 'vue'
 import '../../plugins/vuetify-plugin.ts'
 import BookApp from './BookApp.vue'
 import '../../plugins/socket-io/socket-io'
+import {BusPlugin} from 'vue-epic-bus'
 
 // import '../../registerServiceWorker'
 
@@ -16,6 +17,7 @@ Vue.use(VueBookComponents)
 
 Vue.config.productionTip = false
 Vue.use(Router)
+Vue.use(BusPlugin)
 
 new Vue({
   router: new Router({

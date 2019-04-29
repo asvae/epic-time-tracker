@@ -1,4 +1,4 @@
-import { Task } from '../../../types/Task'
+import { Task } from '../../../types/Task/Task'
 
 export enum ServerResponseType {
   TASK_CREATED = 'TASK_CREATED',
