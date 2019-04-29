@@ -61,7 +61,7 @@ import {
 import { Task } from '../../../../../types/Task/Task'
 import { TimeTrack } from '../../../../../types/TimeTrack/TimeTrack'
 import { prepareEntity } from '../../../../../types/entity-functions'
-import {format, distanceInWords} from 'date-fns'
+import {format} from 'date-fns'
 import { formatDate } from '../../../../../types/helpers/date-helpers'
 
 export const removeByKey = (list: {_key: string}[], key: string) => {
@@ -96,13 +96,7 @@ export default class TaskListPanel extends Mixins(panelMixin) {
     formatDate(date)
   }
   get currentTrackDistanceInWords (): string {
-    if (!this.currentTrack) {
-      return ''
-    }
-    return distanceInWords(
-      this.currentTrack.start,
-      this.currentTrack.end,
-    )
+    return ''
   }
   async updateCurrentTrack() {
     if (!this.currentTrack) {

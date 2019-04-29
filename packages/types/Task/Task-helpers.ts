@@ -14,7 +14,7 @@ export function getLastDayRelativeReadable (task: Task): string {
 
 export function getLastDayTrack (task: Task): Date {
   if (!task.timeTracks.length) {
-    throw new Error(`No time tracks for task "${task.title}" (${task.key})`)
+    throw new Error(`No time tracks for task "${task.title}" (${task._key})`)
   }
 
   return task.timeTracks[0].end
